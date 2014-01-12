@@ -1,0 +1,82 @@
+BODY, html {
+	padding:0;
+	margin:0;
+	background-attachment:fixed;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  background-color:#458AB3;
+	  text-align:center;
+}
+a {
+color: #6a6a6a;
+text-decoration: none;
+}
+
+#bouton_menu {
+  height:25px;
+  width:190px;
+  border:solid 1px #000000;
+  background:url(./images/gradient2.jpg);
+  color:#000000;
+}
+#bouton_menu:hover {
+  border:solid 1px #AAAAAA;
+  color:#666666;
+}
+#title {
+    font-size:16px;
+    color:#458AB3;
+    font-weight:bold;
+}
+#sddm
+{	margin: 0;
+	padding: 0;
+	z-index: 30}
+
+#sddm li
+{	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	font: bold 11px arial}
+
+#sddm li a
+{	display: block;
+	margin: 0 1px 0 0;
+	padding: 4px 10px;
+	background: #5970B2;
+	color: #FFF;
+	text-align: center;
+	text-decoration: none}
+
+#sddm li a:hover
+{	background: #49A3FF}
+
+#sddm div
+{	position: absolute;
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	background: #EAEBD8;
+	border: 1px solid #5970B2}
+
+#sddm div a
+{	position: relative;
+	display: block;
+	margin: 0;
+	padding: 5px 10px;
+	width: auto;
+	white-space: nowrap;
+	text-align: left;
+	text-decoration: none;
+	background: #EAEBD8;
+	color: #2875DE;
+	font: 11px arial}
+
+#sddm div a:hover
+{	background: #49A3FF;
+	color: #FFF}
