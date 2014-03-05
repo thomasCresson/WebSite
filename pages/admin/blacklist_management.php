@@ -24,12 +24,19 @@
   
   echo 'Proposition de blacklistage';
   $db = mysql_select_db ($array_db['db_projet'],$cxn);
-  $sql = "SELECT prenom,nom,users.tel FROM events WHERE users.tel=events.organisateur ORDER BY nom;";
+  $sql = "SELECT prenom,nom,users.tel FROM events,users WHERE users.tel=events.organisateur ORDER BY nom;";
   $request = mysql_query($sql) or die(MYSQL_QUERY_ERROR.mysql_error());
   echo '<table style="background-color:#555555;width:80%;">';
+  $count=0;
   while ($vystup = mysql_fetch_array($request))
   {
-    
+	$sql_organisateur = "SELECT tel,raison FROM pendingBlacklist WHERE organisateur='".$vystup['tel']."';";
+	$request_organisateur = mysql_query($sql_organisateur) or die(MYSQL_QUERY_ERROR.mysql_error());
+	if(mysql_num_rows($request_organisateur)<1) continue;
+	$count++;
     echo 'Liste des comptes proposés par '.$vystup['prenom'].' '.$vystup['nom'].' au blacklistage';
+	
+	if($count) {
+	}
   }
 ?>

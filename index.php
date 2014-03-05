@@ -12,7 +12,8 @@
   $session_id = mysql_real_escape_string($_SESSION['id']);
   $session_username = mysql_real_escape_string(htmlentities($_SESSION['username']));
   $ip = getenv("REMOTE_ADDR");
-
+  $site=1;
+  
   // on doit determiner de quel type est le visiteur
   // 0 - invité
   // 1 - user
