@@ -1,7 +1,7 @@
 <?php
 
 /** 
-Author: Cresson Thomas - Lonni Besançon
+Author: Cresson Thomas - Lonni Besançon - Benoit Testu
 Purpose: fichier contenant les constantes et fonctions utiles pour le traitement bd
 Name: constantes.php
 Date: 07/01/2014
@@ -10,15 +10,17 @@ Date: 07/01/2014
 $step = 2;
 
 function format_return($result){
-	$return = '<table style="background-color:#555555;width:95%;">';
-	while($row = mysql_fetch_row($result)){
-		foreach($row as $element){
-			$return .= '<td style="background-color:#555555;">'.$element.'</td>';
-		}
-		
-		$return .= '<tr>';
-	}
-	return $return.'</table>';
+ $return = "";
+ while($row = mysql_fetch_row($result)){
+  foreach($row as $element){
+   $return .= $element.',';
+  }
+  
+  $return = substr(0, strlen($return) - 1);
+  $return .= "\n";
+ }
+ $return = substr(0, strlen($return) - 1);
+ return $return;
 }
 
 function random($car) {

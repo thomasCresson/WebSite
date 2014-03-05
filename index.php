@@ -35,7 +35,9 @@
 
     <title>GL</title>
     <link rel="icon" type="image/ico" href="./images/gl.ico" />
-    <script type="text/javascript" src="js/swfobject/swfobject.js"></script> 
+    <script type="text/javascript" src="js/swfobject.js"></script>
+	<script type="text/javascript" src="js/jquery-1.x.js"></script>
+	<script type="text/javascript" src="js/jscroller-0.4.js"></script>
     <link href="style.css"	title="Défaut" rel="stylesheet" type="text/css" media="screen" />
   </head>
   <body>

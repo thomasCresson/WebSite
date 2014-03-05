@@ -159,5 +159,6 @@ $query = "SELECT users.Prenom, users.Nom, users.NbKm FROM users LEFT OUTER JOIN 
 }
 $result = mysql_query($query) or die(MYSQL_QUERY_ERROR.mysql_error());
 $return = format_return($result);
+echo $return;
 return $return;
 ?>

@@ -1,4 +1,6 @@
-
+<?php
+	if($_SESSION['admin'] != 1) exit(-1);
+?>
 <div style="width:100%;height:200px;">
     <?php
       $db = mysql_select_db ($array_db['db_projet'],$cxn);

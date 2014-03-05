@@ -26,12 +26,12 @@
 	  <div id="m2" style="width:17%;"
 	      onmouseover="mcancelclosetime()" 
 	      onmouseout="mclosetime()">
-	  <a href="index.php?page=evenement_creer">Créer un évènement</a>
-	  <a href="index.php?page=evenement_gerer">Gérer un évènement</a>
+	  <a href="index.php?page=creer_evenement">Créer un évènement</a>
+	  <a href="index.php?page=gerer_evenement">Gérer un évènement</a>
 	  </div>
       </li>
       <li style="width:20%;"><a href="index.php?page=blacklist_management">Gestion de la blacklist</a></li>
-      <li style="width:20%;"><a href="index.php?page=comptes_management">Gestion des comptes</a></li>
+      <li style="width:20%;"><a href="index.php?page=alias_management">Se connecter en tant que</a></li>
       <li style="width:20%;"><a href="index.php?page=deconnexion_admin">Deconnexion</a></li>
   </ul>
   <div style="clear:both"></div>

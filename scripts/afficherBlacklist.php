@@ -1,4 +1,5 @@
 <?php
+	if($_SESSION['admin'] != 1) exit(-1);
 
 	/** 
 	Author: Benoit TESTU
@@ -19,8 +20,8 @@
 		  <td style="background-color:#555555;">'.$vystup['tel'].'</td>
 		  <td style="background-color:#555555;">
 			<form action="index.php?page=retirer_de_blacklist" method="post">
-			  <label name="tel" value="'.$vystup['tel'].'">
-			  <input id="bouton_menu" type="submit" value="Débannir" />
+				<input name="tel" id="bouton_menu" type="hidden" value="'.$vystup['tel'].'" />
+				<input name="deban" id="bouton_menu" type="submit" value="Débannir" />
 			</form>
 		  </td>';
 		echo '<tr>';
