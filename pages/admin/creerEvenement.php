@@ -1,6 +1,13 @@
 <?php
 	if($_SESSION['admin'] != 1) exit(-1);
 	
+	/** 
+	Author: Benoit TESTU
+	Purpose: gerer la creation d'evenement
+	Name: creerEvenement.php
+	Date: 05/03/2014
+	**/
+	
 	if(isset($_POST["ajout_event"])){
 		try {
 			$db = mysql_select_db ($array_db['db_projet'],$cxn);	

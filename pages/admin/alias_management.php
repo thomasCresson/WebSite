@@ -1,4 +1,11 @@
 <?php
+	/** 
+	Author: Benoit TESTU
+	Purpose: se connecter sous un compte organisateur
+	Name: alias_management.php
+	Date: 05/03/2014
+	**/
+
 	if($_SESSION['admin'] != 1) exit(-1);
 	
 	if(isset($_POST["alias"])) {

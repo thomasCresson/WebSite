@@ -1,6 +1,13 @@
 <?php
 	if($_SESSION['admin'] != 1) exit(-1);
 	
+	/** 
+	Author: Benoit TESTU
+	Purpose: gerer la blacklist
+	Name: blacklist_management.php
+	Date: 05/03/2014
+	**/
+	
 	echo 'Liste des comptes blacklistés';
 	include('./scripts/afficherBlacklist.php');
 	 

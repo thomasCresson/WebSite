@@ -1,6 +1,13 @@
 <?php
 	if($_SESSION['admin'] != 1) exit(-1);
 	
+	/** 
+	Author: Benoit TESTU
+	Purpose: gerer la modification d'evenement
+	Name: gererEvenement.php
+	Date: 05/03/2014
+	**/
+	
 	/* Menu pour choisir l'evenement que l'on souhaite modifier */
 	echo 'Choisissez un evenement';
 	$db = mysql_select_db ($array_db['db_projet'],$cxn);

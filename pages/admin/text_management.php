@@ -1,6 +1,13 @@
 <?php
 	if($_SESSION['admin'] != 1) exit(-1);
 	
+	/** 
+	Author: Benoit TESTU
+	Purpose: gerer la modification du texte d'accueil
+	Name: text_management.php
+	Date: 05/03/2014
+	**/
+	
     $db = mysql_select_db ($array_db['db_projet'],$cxn);
 	  
 	if (isset($_POST['text']))
