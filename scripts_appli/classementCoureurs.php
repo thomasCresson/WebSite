@@ -18,7 +18,7 @@ Comments :
 une requête récupère automatiquement sa ville pour permettre de faire le bon affichage.
 **/
 
-require_once("./config.php");
+require_once("../config.php");
 $db = mysql_select_db ($array_db['db_projet'],$cxn);
 
 if(isset($_GET["tel"])){
@@ -159,5 +159,5 @@ $query = "SELECT users.Prenom, users.Nom, users.NbKm FROM users LEFT OUTER JOIN 
 }
 $result = mysql_query($query) or die(MYSQL_QUERY_ERROR.mysql_error());
 $return = format_return($result);
-echo $return;
+return $return;
 ?>

@@ -7,7 +7,7 @@ Name: ajoutSuppressionCoureur.php
 Date: 07/01/2014
 **/
 
-require_once("constantes.php");
+require_once("./config.php");
 
 $connexion = mysql_connect($host, $user, $password);
 mysql_select_db($dbName);
