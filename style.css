@@ -8,6 +8,7 @@ BODY, html {
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	  background-size: cover;
+<<<<<<< HEAD
 	  background-color:#004A75;
 	  text-align:center;
 }
@@ -39,6 +40,11 @@ BODY, html {
  padding: 0;
 }
 
+=======
+	  background-color:#458AB3;
+	  text-align:center;
+}
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 a {
 color: #6a6a6a;
 text-decoration: none;
@@ -46,22 +52,35 @@ text-decoration: none;
 
 #bouton_menu {
   height:25px;
+<<<<<<< HEAD
   width:150px;
   border:solid 1px #004A75;
   color:#004A75;
   text-align:center;
   font-weight: bold;
   font-size: 20px;
+=======
+  width:190px;
+  border:solid 1px #000000;
+  background:url(./images/gradient2.jpg);
+  color:#000000;
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 }
 #bouton_menu:hover {
   border:solid 1px #AAAAAA;
   color:#666666;
 }
 #title {
+<<<<<<< HEAD
     font-size:20px;
     color:#009CDD;
     font-weight:bold;
 	margin-bottom : 20px;
+=======
+    font-size:16px;
+    color:#458AB3;
+    font-weight:bold;
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 }
 #sddm
 {	margin: 0;
@@ -87,6 +106,7 @@ text-decoration: none;
 #sddm li a:hover
 {	background: #49A3FF}
 
+<<<<<<< HEAD
 .sep{
 width:100%;
 height:10px;
@@ -100,6 +120,8 @@ height:100pt;
 overflow:auto
 }
 
+=======
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 #sddm div
 {	position: absolute;
 	visibility: hidden;

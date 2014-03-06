@@ -8,7 +8,11 @@
 	Date: 07/01/2014
 	**/
 
+<<<<<<< HEAD
 	require_once(($site==1?"./config.php":"./config.php"));
+=======
+	require_once(($site==1?"./config.php":"../config.php"));
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 	$db = mysql_select_db ($array_db['db_projet'],$cxn);
 	  $sql = "SELECT prenom,nom,users.tel FROM users,blacklist WHERE users.tel=blacklist.tel ORDER BY nom;";
 	  $request = mysql_query($sql) or die(MYSQL_QUERY_ERROR.mysql_error());

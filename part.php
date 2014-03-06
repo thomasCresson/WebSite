@@ -18,6 +18,7 @@ switch($page) {
   case 'classement':
     include('./pages/classement.php');
   break;
+<<<<<<< HEAD
   case 'classementCourse':
     include('./pages/classementCourse.php');
   break;
@@ -37,6 +38,8 @@ switch($page) {
   case 'event_modify':
 	 include('./pages/event_modify.php');
 	 break;
+=======
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
   default:
     include('./pages/accueil.php');
   break;

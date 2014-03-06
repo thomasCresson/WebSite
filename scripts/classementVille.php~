@@ -1,0 +1,23 @@
+<?php
+
+/** 
+Author: Cresson Thomas - Lonni Besançon
+Purpose: récupéré le classement des villes
+Name: classementVille.php
+Date: 07/01/2014
+**/
+
+require_once("constantes.php");
+$db = mysql_select_db ($array_db['db_projet'],$cxn);
+
+$query = "SELECT * FROM cities ORDER BY NbKm DESC ";
+
+if(isset($_GET["limit"]))
+	$query .= "LIMIT 3";
+
+$result = mysql_query($query, $connexion);
+$return = format_return($result);
+
+echo $return;
+
+?>

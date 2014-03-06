@@ -14,7 +14,11 @@
 	$sql = "SELECT nomville,debutevenement,finevenement,organisateur FROM events ORDER BY finevenement";
 	$request = mysql_query($sql) or die(MYSQL_QUERY_ERROR.mysql_error());
 	
+<<<<<<< HEAD
 	echo '<form name="modify_event" action="index.php?page=gererEvenement" method="post">';
+=======
+	echo '<form name="modify_event" action="index.php?page=gerer_evenement" method="post">';
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 		echo'<SELECT id="ville" name="ville" size="1">';
 		while ($vystup = mysql_fetch_array($request))
 		{

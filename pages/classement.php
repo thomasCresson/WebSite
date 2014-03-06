@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 	// requete sql
 	$db = mysql_select_db ($array_db['db_projet'],$cxn);
@@ -27,4 +28,11 @@
 		echo '</table>';
 	echo '</div>';
 
+=======
+<?php 
+    echo 'classement coureurs<br/>';
+    include('./scripts/classementCoureurs.php');
+    echo 'classement villes<br/>';
+    include('./scripts/classementVille.php');
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 ?>

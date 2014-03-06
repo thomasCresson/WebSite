@@ -8,10 +8,17 @@
 	Date: 07/01/2014
 	**/
 	require_once("./config.php");
+<<<<<<< HEAD
 	/*$db = mysql_select_db ($array_db['db_projet'],$cxn);
 	$sql = "SELECT prenom,nom,users.tel FROM events,users WHERE users.tel=events.organisateur ORDER BY nom;";
 	$request = mysql_query($sql) or die(MYSQL_QUERY_ERROR.mysql_error());
 	echo '<div class="sep"></div>';
+=======
+	$db = mysql_select_db ($array_db['db_projet'],$cxn);
+	$sql = "SELECT prenom,nom,users.tel FROM events,users WHERE users.tel=events.organisateur ORDER BY nom;";
+	$request = mysql_query($sql) or die(MYSQL_QUERY_ERROR.mysql_error());
+	echo '<div style="width:100%;height:10px;background-color:#458AB3;margin-top:20px;margin-bottom:20px;"></div>';
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 	$count=0;
 	while ($vystup = mysql_fetch_array($request))
 	{
@@ -42,6 +49,7 @@
 		
 	}
 	if($count==0)
+<<<<<<< HEAD
 		echo 'Aucun ajout à la blacklist n\'est souhaité pour le moment';*/
 		$db = mysql_select_db ($array_db['db_projet'],$cxn);
 		//$request = mysql_query("SELECT * FROM users LEFT JOIN pendingblacklist ON pendingblacklist.Tel = users.Tel WHERE (pendingblacklist.Tel IS NULL AND VilleEvent = '".$row['VilleEvent']."' AND Tel != '".$_SESSION["username"]."')");
@@ -77,4 +85,7 @@
 					<input id="bouton_menu" style="width:49%;float:right; background-color:white" type="submit" name="btnAction" value="Accepter" />
 			</div>';
 		echo '</form>';
+=======
+		echo 'Aucun ajout à la blacklist n\'est souhaité pour le moment';
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 ?>

@@ -1,6 +1,10 @@
 <?php
 echo '<div style="width:100%;height:200px;">';
+<<<<<<< HEAD
 echo '<div id="title" >Formulaire de connexion au compte admin <br/></div>';
+=======
+echo 'Formulaire de connexion au compte admin <br/>';
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 if (isset($_POST['password'])) {
 	$password = mysql_real_escape_string(htmlentities($_POST['password']));
 	$db = mysql_select_db ($array_db['db_projet'],$cxn);
@@ -23,7 +27,11 @@ if (isset($_POST['password'])) {
 	{
 		echo '
 		<script language="javascript"> 
+<<<<<<< HEAD
 			alert("Erreur : Le mot de passe choisi est invalide ...");
+=======
+			alert("Erreur : Le mot de passe choisis est invalide ...");
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 			document.location.href="index.php?page=connexion_admin" 
 		</script>';
 	}
@@ -38,7 +46,11 @@ if (isset($_POST['password'])) {
     echo '
 	  <div style="width:179px;height:40px;padding-top:5px;">
 		  <form action="index.php?page=connexion_admin" method="post">
+<<<<<<< HEAD
 		    <input type="password" style="width:100%;margin-bottom:10px;"  name="password" value="admin"/>
+=======
+		    <input type="password" style="width:100%;margin-bottom:10px;"  name="password" value="password" />
+>>>>>>> 3d5404dc803e0cef8cbbe87c184a88c6b73a194c
 		    <input id="bouton_connexion" type="image" style="margin-left:5px;width:100%;height:28px;background:none;box-shadow: none;" style="width:39px;height:28px;" width="100%" height="100%" src="./images/ok.png" />
 		  </form>
 	  </div>';
