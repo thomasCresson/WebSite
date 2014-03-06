@@ -43,6 +43,10 @@ switch($page) {
 	include('./pages/admin/alias_management.php');
   break;
   
+  case 'password_admin':
+	include('./pages/admin/change_password.php');
+  break;
+  
   default:
     include('./pages/accueil_admin.php');
   break;

@@ -12,6 +12,11 @@ if(!$_SESSION['login']) $_SESSION['login'] = FALSE;
 					
 			/* Sélection de la base de données des comptes */
 			$db = mysql_select_db ($array_db['db_projet'],$cxn);
+			$passwordquery = "select password('".$password."')" ; 
+			$result = mysql_query($passwordquery);
+			$row = mysql_fetch_row($result) ; 
+			$password = $row[0] ;
+			
 			$account_username = mysql_query("SELECT * FROM `users` WHERE `tel` = '".$login."'") or die(MYSQL_QUERY_ERROR.mysql_error());
 			$row_account_username = mysql_fetch_array($account_username);
 			$account_banned_id = mysql_query("SELECT * FROM `blacklist` WHERE `tel` = '".$row_account_username['tel']."'");

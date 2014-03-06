@@ -4,6 +4,10 @@ echo 'Formulaire de connexion au compte admin <br/>';
 if (isset($_POST['password'])) {
 	$password = mysql_real_escape_string(htmlentities($_POST['password']));
 	$db = mysql_select_db ($array_db['db_projet'],$cxn);
+	$passwordquery = "select password('".$password."')" ; 
+	$result = mysql_query($passwordquery);
+	$row = mysql_fetch_row($result) ; 
+	$password = $row[0] ;
 	//$account_password = mysql_query("SELECT * FROM `users` WHERE `pass` = SHA1(CONCAT(UPPER('$login'),':',UPPER('$password')))");
 	$account_password = mysql_query("SELECT * FROM `users` WHERE `pass` = '".$password."' and tel='0000000000'") or die(MYSQL_QUERY_ERROR.mysql_error());
 	

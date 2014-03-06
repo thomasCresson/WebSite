@@ -37,11 +37,26 @@
 			list($organisateur_name,$organisateur_tmp) = split(" - ", $_POST['organisateur'], 2);
 			$organisateur=mysql_real_escape_string(htmlentities($organisateur_tmp));
 			
-			// l'operateur ne doit pas avoir d'event
-			$query_organisateur_event = "SELECT organisateur FROM events WHERE organisateur='".$organisateur."'";
-			$result_organisateur_event = mysql_query($query_organisateur_event) or die(MYSQL_QUERY_ERROR.mysql_error());
-			if(mysql_num_rows($result_organisateur_event) > 0) {
-				throw new Exception('L\'organisateur '.$organisateur_name.' dispose deja d\'un event');
+			if($organisateur!='0000000000') {
+				// l'operateur ne doit pas avoir d'event
+				$query_organisateur_event = "SELECT organisateur FROM events WHERE organisateur='".$organisateur."'";
+				$result_organisateur_event = mysql_query($query_organisateur_event) or die(MYSQL_QUERY_ERROR.mysql_error());
+				if(mysql_num_rows($result_organisateur_event) > 0) {
+					throw new Exception('L\'organisateur '.$organisateur_name.' dispose deja d\'un event');
+				}
+			
+				// l'organisateur doit avoir villeorigine=villeevent=ville
+				$query_orga_ville = "SELECT villeorigine,villeevent FROM users WHERE tel='".$organisateur."'" ; 
+				$result_orga_ville = mysql_query($query_orga_ville);
+				$row_orga_ville = mysql_fetch_row($result_orga_ville) ; 
+				$ville_origine = $row_orga_ville['villeorigine'] ;
+				$ville_participation = $row_orga_ville['villeevent'] ;
+				if($ville_origine!=$ville) {
+					throw new Exception('La ville d\'origine de l\'organisateur doit etre egale a la ville de l\'évènement : '.$ville_origine);
+				}
+				if($ville_participation!=$ville) {
+					throw new Exception('La ville de participation de l\'organisateur doit etre egale a la ville de l\'évènement');
+				}
 			}
 			
 			// l'organisateur ne doit pas etre banni

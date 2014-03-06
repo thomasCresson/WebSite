@@ -30,9 +30,10 @@
 	  <a href="index.php?page=gerer_evenement">Gérer un évènement</a>
 	  </div>
       </li>
-      <li style="width:20%;"><a href="index.php?page=blacklist_management">Gestion de la blacklist</a></li>
-      <li style="width:20%;"><a href="index.php?page=alias_management">Se connecter en tant que</a></li>
-      <li style="width:20%;"><a href="index.php?page=deconnexion_admin">Deconnexion</a></li>
+      <li style="width:15%;"><a href="index.php?page=blacklist_management">Gestion de la blacklist</a></li>
+      <li style="width:15%;"><a href="index.php?page=alias_management">Se connecter comme</a></li>
+      <li style="width:15%;"><a href="index.php?page=password_admin">Changer MdP</a></li>
+      <li style="width:15%;"><a href="index.php?page=deconnexion_admin">Deconnexion</a></li>
   </ul>
   <div style="clear:both"></div>
   </div>

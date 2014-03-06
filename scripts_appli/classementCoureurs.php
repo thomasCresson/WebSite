@@ -22,143 +22,138 @@ require_once("../config.php");
 $db = mysql_select_db ($array_db['db_projet'],$cxn);
 
 if(isset($_GET["tel"])){
-$tel = $_GET["tel"];
-if(isset($_GET["ville"])){
-$query_ville = "SELECT VilleEvent, NbKm FROM users WHERE Tel=".$tel;
-$result = mysql_query($query_ville) or die(MYSQL_QUERY_ERROR.mysql_error());
-$row = mysql_fetch_row($result);
-$ville = $row[0];
+	$tel = $_GET["tel"];
+	if(isset($_GET["ville"])){
+		$query_ville = "SELECT VilleEvent, NbKm FROM users WHERE Tel=".$tel;
+		$result = mysql_query($query_ville) or die(MYSQL_QUERY_ERROR.mysql_error());
+		$row = mysql_fetch_row($result);
+		$ville = $row[0];
 
-echo $ville;
+		echo $ville;
 
-$query_position = "SELECT users.Tel, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL AND users.VilleEvent=".$ville." ORDER BY NbKm DESC";
+		$query_position = "SELECT users.Tel, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL AND users.villeorigine=".$ville." ORDER BY NbKm DESC";
 
-$result = mysql_query($query_position) or die(MYSQL_QUERY_ERROR.mysql_error());
+		$result = mysql_query($query_position) or die(MYSQL_QUERY_ERROR.mysql_error());
 
-$position = 1;
+		$position = 1;
 
-do{
-   $row = mysql_fetch_row($result); 
-   
-   if($row[0] == $tel)
-    break;
-   
-   $position++;
-}while($row[0] != $tel);
+		do{
+			$row = mysql_fetch_row($result); 
 
-$max = $position;
+			if($row[0] == $tel)
+				break;
 
-while(mysql_fetch_row($result)){
-$max++;
+			$position++;
+		}while(true);
+
+		$max = $position;
+
+		while(mysql_fetch_row($result)){
+			$max++;
+		}
+
+		$begin = $step;
+		$begin_modified = false;
+		$end = $step;
+
+		while($position - $begin <= 1){
+			$begin--;
+			$end++;
+			$begin_modified = true;
+		}
+
+		while($position + $end >= $max){
+			$end--;
+			if(!$begin_modified){
+				$begin++;
+				$begin_modified = $position - $begin <= 1;
+			}
+		}
+
+		if($begin < 0)
+			$begin = 0;
+
+		if($end < 0)
+			$end = 0;
+
+		if($position != $max)
+			$position--;
+
+		if($position != 0)
+			$end--;
+
+		echo $position;
+		echo $begin;
+		echo $end;
+
+		$query = "SELECT users.Prenom, users.Nom, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL AND users.villeorigine=".$ville." ORDER BY NbKm DESC LIMIT ".($position-$begin).",".($position+$end);
+	}
+
+	else{
+		$query_position = "SELECT users.Tel, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL ORDER BY NbKm DESC";
+
+		$result = mysql_query($query_position, $connexion);
+
+		$position = 1;
+
+		do{
+			$row = mysql_fetch_row($result); 
+
+			if($row[0] == $tel)
+			break;
+
+			$position++;
+		}while(true);
+
+		$max = $position;
+
+		while(mysql_fetch_row($result)){
+			$max++;
+		}
+
+		$begin = $step;
+		$begin_modified = false;
+		$end = $step;
+
+		while($position - $begin <= 1){
+			$begin--;
+			$end++;
+			$begin_modified = true;
+		}
+
+		while($position + $end >= $max){
+			$end--;
+			if(!$begin_modified){
+				$begin++;
+				$begin_modified = $position - $begin <= 1;
+			}
+		}
+
+		if($begin < 0)
+			$begin = 0;
+
+		if($end < 0)
+			$end = 0;
+
+		if($position != $max)
+			$position--;
+
+		if($position != 0)
+			$end--;
+
+		$query = "SELECT users.Prenom, users.Nom, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL ORDER BY NbKm DESC LIMIT ".($position-$begin).",".($position+$end);
+	}
 }
 
-$begin = $step;
-$begin_modified = false;
-$end = $step;
-
-while($position - $begin <= 1){
-$begin--;
-$end++;
-$begin_modified = true;
-}
-
-while($position + $end >= $max){
-$end--;
-if(!$begin_modified){
-$begin++;
-$begin_modified = $position - $begin <= 1;
-}
-}
-
-if($begin < 0)
-$begin = 0;
-
-if($end < 0)
-$end = 0;
-
-if($position != $max)
-$position--;
-
-if($position != 0)
-$end--;
-
-echo $position;
-echo $begin;
-echo $end;
-
-$query = "SELECT users.Prenom, users.Nom, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL AND users.VilleEvent=".$ville." ORDER BY NbKm DESC LIMIT ".($position-$begin).",".($position+$end);
-}
-
-else{
-$query_position = "SELECT users.Tel, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL ORDER BY NbKm DESC";
-
-$result = mysql_query($query_position, $connexion);
-
-$position = 1;
-
-do{
-   $row = mysql_fetch_row($result); 
-   
-   if($row[0] == $tel)
-    break;
-   
-   $position++;
-}while($row[0] != $tel);
- 
-$max = $position;
-
-while(mysql_fetch_row($result)){
-$max++;
-}
-
-echo " POSITION: ".$position;
-echo " MAX: ".$max;
-
-$begin = $step;
-$begin_modified = false;
-$end = $step;
-
-while($position - $begin <= 1){
-$begin--;
-$end++;
-$begin_modified = true;
-}
-
-while($position + $end >= $max){
-$end--;
-if(!$begin_modified){
-$begin++;
-$begin_modified = $position - $begin <= 1;
-}
-}
-
-if($begin < 0)
-$begin = 0;
-
-if($end < 0)
-$end = 0;
-
-if($position != $max)
-$position--;
-
-if($position != 0)
-$end--;
-
-echo $position;
-echo $begin;
-echo $end;
-
-
-
-$query = "SELECT users.Prenom, users.Nom, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL ORDER BY NbKm DESC LIMIT ".($position-$begin).",".($position+$end);
-}
+else if(isset($_GET["ville"])){
+	$query = "SELECT users.Prenom, users.Nom, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL AND villeOrigine='".$_GET['ville']."' ORDER BY NbKm DESC";
 }
 
 else{
-$query = "SELECT users.Prenom, users.Nom, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL ORDER BY NbKm DESC";
+	$query = "SELECT users.Prenom, users.Nom, users.NbKm FROM users LEFT OUTER JOIN blacklist ON users.Tel=blacklist.Tel WHERE blacklist.Tel IS NULL ORDER BY NbKm DESC";
 }
-$result = mysql_query($query) or die(MYSQL_QUERY_ERROR.mysql_error());
-$return = format_return($result);
-echo $return;
-return $return;
+
+	$result = mysql_query($query) or die(MYSQL_QUERY_ERROR.mysql_error());
+	$return = format_return($result);
+	return $return;
 ?>
